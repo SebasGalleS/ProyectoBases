@@ -9,19 +9,21 @@ import { SesionesComponent } from './pages/sesiones/sesiones.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './core/guards/auth.guard';
+import { LoginGuard } from './core/guards/login.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'ejercicios', component: EjerciciosComponent },
-  { path: 'clientes', component: ClientesComponent },
-  { path: 'clientes/:cedula/progreso', component: ClienteProgresoComponent },
-  { path: 'rutinas', component: RutinasComponent },
-  { path: 'sesiones', component: SesionesComponent },
-  { path: 'reportes', component: ReportesComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'inicio', component: DashboardComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+  { path: 'inicio', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', redirectTo: 'inicio', pathMatch: 'full' },
+  { path: 'ejercicios', component: EjerciciosComponent, canActivate: [AuthGuard] },
+  { path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard] },
+  { path: 'clientes/:cedula/progreso', component: ClienteProgresoComponent, canActivate: [AuthGuard] },
+  { path: 'rutinas', component: RutinasComponent, canActivate: [AuthGuard] },
+  { path: 'sesiones', component: SesionesComponent, canActivate: [AuthGuard] },
+  { path: 'reportes', component: ReportesComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: 'inicio' }
 ];
 
 @NgModule({

@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require&prepareThreshold=0
     username: postgres.zwktiolglonfhrjgvjgh
-    password: sebasylisa08                    # la misma contraseña de la DB
+    password: sebasylisa08 # la misma contraseña de la DB
     hikari:
       maximum-pool-size: 10
       connection-timeout: 20000
@@ -21,4 +21,3 @@ springdoc:
     path: /docs
   api-docs:
     path: /v3/api-docs
-

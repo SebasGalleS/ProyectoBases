@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SimpleAuthService } from '../../core/services/simple-auth.service';
 
 interface DemoUser {
   email: string;
@@ -16,6 +17,7 @@ interface DemoUser {
 export class LoginComponent {
   private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
+  private readonly auth = inject(SimpleAuthService);
   private readonly allowedUser: DemoUser = {
     email: 'admin@fitware.com',
     password: '1234',
@@ -44,7 +46,8 @@ export class LoginComponent {
     if (email === this.allowedUser.email && password === this.allowedUser.password) {
       this.feedback = `Bienvenido ${this.allowedUser.name}`;
       this.feedbackType = 'success';
-      setTimeout(() => this.router.navigateByUrl('/'), 600);
+      this.auth.login();
+      setTimeout(() => this.router.navigateByUrl('/inicio'), 500);
     } else {
       this.feedback = 'Credenciales incorrectas. Usa admin@fitware.com / 1234';
       this.feedbackType = 'danger';
