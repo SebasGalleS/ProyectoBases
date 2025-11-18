@@ -8,6 +8,7 @@ import { RutinasComponent } from './pages/rutinas/rutinas.component';
 import { SesionesComponent } from './pages/sesiones/sesiones.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'rutinas', component: RutinasComponent },
   { path: 'sesiones', component: SesionesComponent },
   { path: 'reportes', component: ReportesComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

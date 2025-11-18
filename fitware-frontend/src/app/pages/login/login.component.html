@@ -1,0 +1,43 @@
+<section class="login-container">
+  <div class="card shadow-sm login-card">
+    <div class="card-body">
+      <h1 class="h4 text-center mb-4">Acceso Fitware</h1>
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo</label>
+          <input id="email"
+                 type="email"
+                 class="form-control"
+                 formControlName="email"
+                 placeholder="admin@fitware.com"
+                 [class.is-invalid]="hasError('email')">
+          <div class="invalid-feedback">
+            Ingresa un correo valido.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Contrasena</label>
+          <input id="password"
+                 type="password"
+                 class="form-control"
+                 formControlName="password"
+                 placeholder="1234"
+                 [class.is-invalid]="hasError('password')">
+          <div class="invalid-feedback">
+            La contrasena debe contener al menos 4 caracteres.
+          </div>
+        </div>
+
+        <div class="alert py-2" *ngIf="feedback" [ngClass]="{'alert-success': feedbackType === 'success', 'alert-danger': feedbackType === 'danger'}">
+          {{ feedback }}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+      </form>
+      <p class="text-muted small text-center mt-3 mb-0">
+        Demo local: usuario admin&#64;fitware.com y contrasena 1234.
+      </p>
+    </div>
+  </div>
+</section>

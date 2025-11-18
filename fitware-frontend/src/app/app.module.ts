@@ -15,6 +15,7 @@ import { RutinasComponent } from './pages/rutinas/rutinas.component';
 import { SesionesComponent } from './pages/sesiones/sesiones.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ReportesComponent } from './pages/reportes/reportes.component';
     RutinasComponent,
     SesionesComponent,
     NotFoundComponent,
-    ReportesComponent
+    ReportesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
